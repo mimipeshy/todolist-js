@@ -2,6 +2,12 @@ const listContainer= document.querySelector('[data-lists]')
 const newProjectForm= document.querySelector('[data-new-list-form]')
 const newProjectInput= document.querySelector('[data-new-list-input]')
 const deleteListButon = document.querySelector('[data-delete-list-button]')
+const listDisplayContainer= document.querySelector('[data-list-display-container')
+const listCountElement= document.querySelector('[data-list-count]')
+const tasksContainer= document.querySelector('[data-tasks]')
+const listTitleElement= document.querySelector('[data-list-title]')
+
+
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists'
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId'
@@ -44,18 +50,37 @@ function saveAndRender(){
 }
 function getLists(){
    clearElement(listContainer)
-    lists.forEach(list =>{
-      const newList= document.createElement('li')
-      newList.dataset.listId = list.id
-      newList.classList.add('list-name')
-      newList.innerText= list.name
-      if(list.id === selectedListId){
-          newList.classList.add('active-list')
-      }
-      listContainer.appendChild(newList)
-    })
+   renderLists()
+
+    const selectedList = lists.find(list=> list.id === selectedListId)
+   if (selectedListId == null){
+       listDisplayContainer.style.display= 'none'
+   }else{
+       listDisplayContainer.style.display=''
+       listTitleElement.innerText= selectedList.name
+       renderTaskCount(selectedList)
+  } 
 }
 
+function renderTaskCount(selectedList){
+    const incompleteTaskCount = selectedList.tasks.filter(tasks => !tasks.complete).length
+    const taskString = incompleteTaskCount === 1 ? "task" : "tasks"
+
+    listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`
+}
+function renderLists(){
+    lists.forEach(list =>{
+        const newList= document.createElement('li')
+        newList.dataset.listId = list.id
+        newList.classList.add('list-name')
+        newList.innerText= list.name
+        if(list.id === selectedListId){
+            newList.classList.add('active-list')
+        }
+        listContainer.appendChild(newList)
+      })
+    
+}
 function clearElement(element){
     while(element.firstChild){
         element.removeChild(element.firstChild)
