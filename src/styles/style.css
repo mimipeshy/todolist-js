@@ -6,12 +6,12 @@
     --clr-warning: rgb(99, 36, 36);
   }
   
-  /* *,
+  *,
   *::before,
   *::after {
     font-family: inherit;
     box-sizing: border-box;
-  } */
+  }
   
   body {
     margin: 0;
@@ -25,6 +25,10 @@
   }
   aside{
       margin: 30px;
+  }
+  ::placeholder{
+      color: black;
+      opacity: 0.5;
   }
   .title {
     grid-area: header;
@@ -40,19 +44,21 @@
     grid-area: lists;
   }
   
-  .task-list {
+  .task-list{
     font-size: 1.2rem;
     line-height: 1.7;
     list-style: circle;
     padding-left: 1.1em;
   }
-  
   .list-name {
     cursor: pointer;
+    list-style: circle;
+    display: block;
+    font-size: 1.6rem;
   }
   
   .list-name:hover {
-    opacity: 0.7;
+    opacity: 0.8;
   }
   
   form {
@@ -132,9 +138,9 @@
     opacity: 0.15;
   } */
   
-  /* .new:focus::placeholder {
+  .new:focus::placeholder {
     opacity: 0.15;
-  } */
+  }
   
   .new.list {
     font-size: 1.1rem;
@@ -217,11 +223,11 @@
     cursor: pointer;
     border: 2px solid currentColor;
     border-radius: 50%;
-    /* -webkit-transform: scale(1);
+    -webkit-transform: scale(1);
             transform: scale(1);
     transition: -webkit-transform 300ms ease-in-out;
     transition: transform 300ms ease-in-out;
-    transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out; */
+    transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
   }
   
   .task:hover .custom-checkbox,
@@ -241,7 +247,7 @@
     opacity: 0.5;
   }
   
-  /* .task label::after {
+  .task label::after {
     content: "";
     position: absolute;
     left: 0;
@@ -257,8 +263,7 @@
     transition: -webkit-transform 150ms ease-in-out;
     transition: transform 150ms ease-in-out;
     transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-  } */
-  
+  } 
   [type="checkbox"]:checked + label::after {
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
