@@ -120,13 +120,12 @@
   
   .new::placeholder {
     opacity: 0.4;
-  } */
-  
+  } 
   .new:focus {
     border-bottom-width: 3px;
   }
-  
-  /* .new:focus::-webkit-input-placeholder {
+   */
+  .new:focus::-webkit-input-placeholder {
     opacity: 0.15;
   }
   
@@ -136,7 +135,7 @@
   
   .new:focus::-ms-input-placeholder {
     opacity: 0.15;
-  } */
+  } 
   
   .new:focus::placeholder {
     opacity: 0.15;
@@ -152,6 +151,7 @@
   
   .active-list {
     font-weight: 700;
+  
   }
   
   .todo-list {

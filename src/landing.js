@@ -3,8 +3,18 @@ const newProjectForm= document.querySelector('[data-new-list-form]')
 const newProjectInput= document.querySelector('[data-new-list-input]')
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists'
+const LOCAL_STORAGE_SELECTED_LIST_KEY ='task.selectedListIs'
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
+let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_KEY)
 
+listContainer.addEventListener('click', e=>{
+    e.preventDefault()
+    if(e.target.tagName.toLowerCase()==='li'){
+        selectedListId =e.target.dataset.listId
+        saveAndRender()
+    }
+
+})
 
 newProjectForm.addEventListener('submit',e =>{
     e.preventDefault()
@@ -33,6 +43,9 @@ function getLists(){
       newList.dataset.listId = list.id
       newList.classList.add('list-name')
       newList.innerText= list.name
+      if(list.id === selectedListId){
+          newList.classList.add('active-list')
+      }
       listContainer.appendChild(newList)
     })
 }
