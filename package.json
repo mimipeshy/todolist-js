@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "eslint-config-airbnb": "^18.2.1"
+  },
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch"
