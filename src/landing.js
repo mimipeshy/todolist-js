@@ -145,6 +145,8 @@ const renderTaskCount = (selectedList) => {
 
   listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
 };
+
+//render todo tasks
 const renderTasks = (selectedList) => {
   selectedList.tasks.forEach(task => {
     const taskElement = document.importNode(taskTemplate.content, true);
@@ -154,7 +156,7 @@ const renderTasks = (selectedList) => {
     const label = taskElement.querySelector('label');
     label.htmlFor = task.id;
     const lineBreak = document.createElement("br");
-    label.append(task.name, ", ", task.date, lineBreak, task.description);
+    label.append(task.name, ", ", task.date,", " ,task.priority, ", ",lineBreak, task.description);
     const editButton = document.createElement("p");
     editButton.innerHTML = `<i class="far fa-edit"></i>`;
     editButton.classList.add("edit");
