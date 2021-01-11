@@ -205,7 +205,7 @@
     margin-bottom: 1.25em;
   }
   
-  .task::after {
+  /* .task::after {
     content: "";
     position: absolute;
     right: 0;
@@ -214,7 +214,7 @@
     height: 1px;
     background: currentColor;
     opacity: 0.1;
-  }
+  } */
   
   .custom-checkbox {
     --size: 0.75em;
@@ -225,19 +225,19 @@
     cursor: pointer;
     border: 2px solid currentColor;
     border-radius: 50%;
-    -webkit-transform: scale(1);
+    /* -webkit-transform: scale(1);
             transform: scale(1);
     transition: -webkit-transform 300ms ease-in-out;
     transition: transform 300ms ease-in-out;
-    transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+    transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out; */
   }
   
-  .task:hover .custom-checkbox,
+  /* .task:hover .custom-checkbox,
   [type="checkbox"]:focus + label .custom-checkbox {
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
     color: var(--clr-primary);
-  }
+  } */
   
   [type="checkbox"]:checked + label .custom-checkbox {
     background: var(--clr-primary);
@@ -249,7 +249,7 @@
     opacity: 0.5;
   }
   
-  .task label::after {
+  /* .task label::after {
     content: "";
     position: absolute;
     left: 0;
@@ -265,13 +265,13 @@
     transition: -webkit-transform 150ms ease-in-out;
     transition: transform 150ms ease-in-out;
     transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-  } 
-  [type="checkbox"]:checked + label::after {
+  }  */
+  /* [type="checkbox"]:checked + label::after {
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
     -webkit-transform-origin: left;
             transform-origin: left;
-  }
+  } */
   
   .delete-stuff {
     display: flex;
@@ -318,8 +318,15 @@
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.editing-button {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
+
+/* .editing-button{
+  color: red;
+  font-size: 16px;
+  cursor: pointer;
+} */

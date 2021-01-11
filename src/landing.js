@@ -122,6 +122,7 @@ const getLists = () => {
     renderTaskCount(selectedList);
     clearElement(tasksContainer);
     renderTasks(selectedList);
+    colorTasks(selectedList);
   }
 };
 
@@ -138,7 +139,9 @@ const renderLists = () => {
   });
 };
 
-
+const editTask =(task, label) =>{
+  alert('poppimg');
+}
 const renderTaskCount = (selectedList) => {
   const incompleteTaskCount = selectedList.tasks.filter(tasks => !tasks.complete).length;
   const taskString = incompleteTaskCount === 1 ? 'task' : 'tasks';
@@ -148,25 +151,41 @@ const renderTaskCount = (selectedList) => {
 
 //render todo tasks
 const renderTasks = (selectedList) => {
-  selectedList.tasks.forEach(task => {
+  selectedList.tasks.forEach((task) => {
     const taskElement = document.importNode(taskTemplate.content, true);
-    const checkbox = taskElement.querySelector('input');
+    const checkbox = taskElement.querySelector("input");
     checkbox.id = task.id;
     checkbox.checked = task.complete;
-    const label = taskElement.querySelector('label');
+    const label = taskElement.querySelector("label");
     label.htmlFor = task.id;
     const lineBreak = document.createElement("br");
-    label.append(task.name, ", ", task.date,", " ,task.priority, ", ",lineBreak, task.description);
-    const editButton = document.createElement("p");
-    editButton.innerHTML = `<i class="far fa-edit"></i>`;
-    editButton.classList.add("edit");
+    label.append(task.name, ", ", task.date, lineBreak, task.description);
+    const editButton = document.createElement("span");
+    editButton.innerHTML = `<i class="fa fa-edit"></i>`;
+    editButton.classList.add("editing-button");
     editButton.addEventListener("click", () => editTask(task, label));
     const todoTask = taskElement.querySelector(".task");
     todoTask.append(editButton);
-    label.append(task.name);
     tasksContainer.appendChild(taskElement);
   });
 };
+
+
+function colorTasks(selectedList) {
+  const todos = [...document.querySelectorAll(".task")];
+  const checkbox = [...document.querySelectorAll(".custom-checkbox")];
+  for (let i = 0; i < todos.length; i++) {
+    for (let i = 0; i < selectedList.tasks.length; i++) {
+      if (selectedList.tasks[i].priority === "High") {
+        checkbox[i].style.border = "2px solid #ed1250";
+      } else if (selectedList.tasks[i].priority === "Medium") {
+        checkbox[i].style.border = "2px solid #d3d00f";
+      } else {
+        checkbox[i].style.border = "2px solid #0fc53d";
+      }
+    }
+  }
+}
 
 const clearElement = (element) => {
   while (element.firstChild) {
