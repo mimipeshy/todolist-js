@@ -158,8 +158,8 @@ const renderTasks = (selectedList) => {
     checkbox.checked = task.complete;
     const label = taskElement.querySelector("label");
     label.htmlFor = task.id;
-    const lineBreak = document.createElement("br");
-    label.append(task.name, ", ", task.date, lineBreak, task.description);
+    // const lineBreak = document.createElement("br");
+    label.append(task.name, ", ", task.date, ", ", task.priority, ", ", task.description);
     const editButton = document.createElement("span");
     editButton.innerHTML = `<i class="fa fa-edit"></i>`;
     editButton.classList.add("editing-button");
