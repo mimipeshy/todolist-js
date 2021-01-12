@@ -1,8 +1,9 @@
 
 body{
   box-sizing: border-box;
-  background-color: #aaf0b9;
+  background-color:teal;
   font-size: 1.3rem;
+  font-family: 'Caveat', cursive;
   margin: 0;
 }
 
@@ -12,11 +13,10 @@ main{
 
 /* Project sections */
 .project-display-container {
-  width: 30%;
+  width: 40%;
   padding: 40px;
   height: 100vh;
-  border-right: 3px solid #000;
-  background-color: #8ac2e3;
+  background-color:#00AEAE;
 }
 
 .project-add-container {
@@ -43,12 +43,17 @@ main{
 .project-add-btn {
   cursor: pointer;
   background-color: #fff;
-  border: none;
-  padding: 5px 10px;
+  padding: 1rem;
   margin: 10px 0;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  border-radius: 45px;
+  background-color:#4eb5f1;
+ text-align:center;
+ transition: all 0.2s;
 }
-
+.project-add-btn:hover{
+  border-color: rgba(255,255,255,1);
+}
 .current {
   border-bottom: 2px solid #fff;
 }
@@ -57,8 +62,6 @@ main{
 
 .add-todo-btn {
   position: relative;
-  left: 500px;
-  bottom: 40px;
   width: 50px;
   height: 50px;
   background-color: #fff;
@@ -66,7 +69,7 @@ main{
   border-radius: 50%;
   cursor: pointer;
   text-align: center;
-  font-size: 45px;
+  font-size: 34px;
 }
 
 .add-container {
@@ -118,9 +121,10 @@ main{
 
 /* popup display section */
 .popup-display-container {
-  width: 40%;
+  width: 100%;
   height: 100%;
   margin: 80px 20px;
+  background-color:yellow;
 }
 
 /* Toggle */
@@ -133,10 +137,9 @@ main{
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  border: 5px solid red;
   cursor: pointer;
   position: relative;
-  left: 220px;
+  left: 350px;
   bottom: 65px;
 }
 
@@ -151,9 +154,17 @@ main{
   padding: 10px 0 10px 5px;
 }
 
+input[type="text"] {
+  width: 80%;
+  font-size: 0.9em;
+  border-radius: 7px;
+  padding-top: 0.5rem;  
+
+}
+
 .add-btn{
   background-color: #fff;
-  border: none;
+  border-radius: 45px;
   cursor: pointer;
   margin-top: 30px;
   padding: 10px 15px;
