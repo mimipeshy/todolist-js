@@ -1,86 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>TODO List</title>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../src/styles/style.css" />
-    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <h1 class="title">TODO LIST</h1>
-    <aside>
-        <div class="all-tasks">
-            <h2 class="task-list-title">My Projects</h2>
-            <ul class="task-list" data-lists></ul>
-            <form action="" data-new-list-form>
-                <input type="text" class="new project" data-new-list-input placeholder="New project name"
-                    aria-label="new project name" />
-                <button class="btn create" aria-label="create new list">+</button>
-            </form>
-            <button class="btn delete" data-delete-list-button>Delete list</button>
-        </div>
-
-    </aside>
-    <div class="todo-list" data-list-display-container>
-        <div class="todo-header">
-            <h2 class="list-title" data-list-title></h2>
-            <p class="task-count" data-list-count></p>
-        </div>
-        <div class="delete-stuff">
-            <button class="btn delete" data-clear-complete-tasks-button>Clear completed tasks</button>
-
-        </div>
-        <div class="todo-body">
-            <div class="tasks" data-tasks>
-
-            </div>
-            <div class="new-task-creator">
-                <form action="" data-new-task-form>                    
-                    <button id="myBtn">Create Todo</button>
-                    
-                    <div id="myModal" class="modal">
-
-                
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <form data-new-task-form>
-                                <label for="name">Task name:</label><br />
-                                <input type="text" id="name" data-new-task-input placeholder="Task name"
-                                    ariel-label="Add new task item" autocomplete="off" required /><br />
-                                <label for="due-date">Due date:</label>
-                                <input type="date" id="due-date" name="due-date" required/><br />
-                                <label for="priority">Priority:</label><br />
-                                <select name="priority" id="priority">
-                                    <option value="Low">Low</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="High">High</option>
-                                </select><br />
-                                <label for="description">Description:</label><br />
-                                <textarea name="description" id="description" cols="30" rows="6"></textarea><br />
-                                <input type="submit" />
-                            </form>
-                        </div>
-                    </div>
+    <main>
+        <div class="project-display-container">
+            <h1>Project List</h1>
+            <div class="project-add-container">
+                <form id="project-add-form">
+                    <label for="project-add"></label>
+                    <input type="text" class="project-add-input" id="project-add" name="project-add">
+                    <button class="project-add-btn">Add Project</button>
                 </form>
             </div>
         </div>
-    </div>
-    <template id="task-template">
-        <div class="task">
-            <input type="checkbox" />
-            <label>
-                <span class="custom-checkbox"></span>
-            </label>
+        <div class="todo-display-container">
+            <h2>Todo List</h2>
+            <div class="add-todo-btn">+</div>
+            <div class="todos-container">
+
+            </div>
         </div>
-    </template>
-
+        <div class="popup-display-container"></div>
+    </main>
     <script src="main.js"></script>
-    <script src="https://use.fontawesome.com/c0519c9aca.js"></script>
 </body>
-
 </html>
