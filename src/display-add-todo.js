@@ -1,5 +1,4 @@
 import Storage from './storage';
-import { Todo } from './todo-class';
 import { showTodos } from './show-todos';
 
 const createAddTodoDisplay = () => {
@@ -63,7 +62,7 @@ const createNewTodo = () => {
       }
     });
     if (formValidation()) {
-      const todo = new Todo(titleInputEl.value.trim(), dueInputEl.value, priorityInputeEl.value);
+      const todo = new (titleInputEl.value.trim(), dueInputEl.value, priorityInputeEl.value)();
 
       Storage.saveTodo(todo, index);
       showTodos(index);

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
 body {
   box-sizing: border-box;
   background-color: teal;
@@ -114,7 +115,7 @@ main {
   font-size: 1.2rem;
   padding: 8px;
   margin: 0 5px;
-  background-color:#fff;
+  background-color: #fff;
   border-radius: 5px;
   cursor: pointer;
   font-family: 'Caveat', cursive;

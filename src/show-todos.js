@@ -1,5 +1,4 @@
 import Storage from './storage';
-import { TodoDOMElement } from './todo-class';
 
 const todosContainer = document.querySelector('.todos-container');
 
@@ -17,7 +16,7 @@ const showTodos = (index = 0) => {
 
   if (todos.length > 0) {
     todos.forEach((todo, todoIndex) => {
-      const todoEl = new TodoDOMElement(todo.title, todo.due, todo.priority, todoIndex, todo.done);
+      const todoEl = new (todo.title, todo.due, todo.priority, todoIndex, todo.done)();
       todosContainer.appendChild(todoEl.div);
     });
   } else {
