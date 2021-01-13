@@ -16,10 +16,9 @@ const createAddTodoDisplay = () => {
                 </div>
 
                 <div class="input-container">
-                    <label for="date" class="input-label">Due:</label>
+                    <label>Due:</label>
                     <input type="date" name="date" id="date" class="input" required />
                 </div>
-                <input type="date" id="due-date" name="due-date" required /><br />
                 <div class="input-container">
                     <label for="priority" class="input-label">Priority:</label>
                     <select class="input" name="priority" id="priority">
