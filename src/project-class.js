@@ -42,8 +42,6 @@ class ProjectDOMElement {
     if (Storage.getProjects().length > 1) {
       Storage.removeProject(this.title);
       projectDisplay.querySelector(`[data-index='${this.index}']`).remove();
-    } else {
-      alert('At least 1 project is required');
     }
   }
 }

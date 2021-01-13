@@ -45,7 +45,7 @@ class TodoDOMElement {
     this.priorityDiv.textContent = priority;
     this.titleDiv.textContent = title;
     this.dueDiv.textContent = due;
-    this.checkButton.textContent = 'Checking';
+    this.checkButton.textContent = 'Check';
     this.modifyButton.textContent = 'Modify';
     this.deleteButton.textContent = 'Delete';
 
