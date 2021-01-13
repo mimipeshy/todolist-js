@@ -1,7 +1,6 @@
 {
-  "name": "todo-app",
+  "name": "todolist",
   "version": "1.0.0",
-  "description": "Js TododList",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -9,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mimipeshy/todolist-js.git"
+    "url": "git+https://github.com/mimipeshy/js-restaurant-page.git"
   },
   "author": "Peris Ndanu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mimipeshy/todolist-js/issues"
+    "url": "https://github.com/mimipeshy/js-restaurant-page/issues"
   },
-  "homepage": "https://github.com/mimipeshy/todolist-js#readme",
+  "homepage": "https://github.com/mimipeshy/js-restaurant-page#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^5.0.1",
