@@ -1,76 +1,73 @@
 class Storage {
-    //Handle Projects
-    static getProjects(){
-        let projects = [{
-            title: "Default"
-            ,todos: []
-        }]
+  // Handle Projects
+  static getProjects() {
+    let projects = [{
+      title: 'Default',
+      todos: [],
+    }];
 
-        if (!localStorage.getItem('todoApp') ){
-            // When there is no 'todoApp' item in localStorage, make and add Default
-            localStorage.setItem('todoApp', JSON.stringify(projects));
-            projects = JSON.parse(localStorage.getItem('todoApp'));
-        } else {
-            projects = JSON.parse(localStorage.getItem('todoApp'));
-        }
-        
-        return projects
+    if (!localStorage.getItem('todoApp')) {
+      // When there is no 'todoApp' item in localStorage, make and add Default
+      localStorage.setItem('todoApp', JSON.stringify(projects));
+      projects = JSON.parse(localStorage.getItem('todoApp'));
+    } else {
+      projects = JSON.parse(localStorage.getItem('todoApp'));
     }
 
-    static saveProject(project){
-        const projects = JSON.parse(localStorage.getItem('todoApp'));
+    return projects;
+  }
 
-        projects.push(project);
-        localStorage.setItem('todoApp', JSON.stringify(projects));
-    }
+  static saveProject(project) {
+    const projects = JSON.parse(localStorage.getItem('todoApp'));
 
-    static removeProject(target){
-        const projects = JSON.parse(localStorage.getItem('todoApp'));;
-        const todoContainerEl = document.querySelector('.todos-container');
+    projects.push(project);
+    localStorage.setItem('todoApp', JSON.stringify(projects));
+  }
 
-        const index = projects.findIndex((el) => {
-            return el.title == target;
-        });
+  static removeProject(target) {
+    const projects = JSON.parse(localStorage.getItem('todoApp'));
+    const todoContainerEl = document.querySelector('.todos-container');
 
-        projects.splice(index, 1);
-        localStorage.setItem('todoApp', JSON.stringify(projects));
-        todoContainerEl.innerHTML = 'Project deleted, please choose other project'  
-    }
+    const index = projects.findIndex((el) => el.title == target);
 
-    // Handle todos in a Project
-    static getTodos(index){
-        const targetProject = this.getProjects()[index].todos;
-        return targetProject
-    }
+    projects.splice(index, 1);
+    localStorage.setItem('todoApp', JSON.stringify(projects));
+    todoContainerEl.innerHTML = 'Project deleted, please choose other project';
+  }
 
-    static saveTodo(todo, index){
-        const projects = this.getProjects();
+  // Handle todos in a Project
+  static getTodos(index) {
+    const targetProject = this.getProjects()[index].todos;
+    return targetProject;
+  }
 
-        // Add todo to todos in specific proejct
-        projects[index].todos.push(todo);
+  static saveTodo(todo, index) {
+    const projects = this.getProjects();
 
-        localStorage.setItem('todoApp', JSON.stringify(projects));
-    }
+    // Add todo to todos in specific proejct
+    projects[index].todos.push(todo);
 
-    static removeTodo(index, todoIndex){
-        const projects = this.getProjects();
+    localStorage.setItem('todoApp', JSON.stringify(projects));
+  }
 
-        projects[index].todos.splice(todoIndex, 1);
-        localStorage.setItem('todoApp', JSON.stringify(projects));
-    }
+  static removeTodo(index, todoIndex) {
+    const projects = this.getProjects();
 
-    static modifyTodo(index, todoIndex, ...changes){
-        const projects = this.getProjects();
-        const change = [...changes];
-        projects[index].todos[todoIndex] = {
-            title: `${change[0]}`,
-            priority: `${change[1]}`,
-            due:`${change[2]}`,
-            done: change[3]
-        }
+    projects[index].todos.splice(todoIndex, 1);
+    localStorage.setItem('todoApp', JSON.stringify(projects));
+  }
 
-        localStorage.setItem('todoApp', JSON.stringify(projects));
-    }
+  static modifyTodo(index, todoIndex, ...changes) {
+    const projects = this.getProjects();
+    const change = [...changes];
+    projects[index].todos[todoIndex] = {
+      title: `${change[0]}`,
+      priority: `${change[1]}`,
+      due: `${change[2]}`,
+      done: change[3],
+    };
 
-} 
-export { Storage }
+    localStorage.setItem('todoApp', JSON.stringify(projects));
+  }
+}
+export { Storage };
