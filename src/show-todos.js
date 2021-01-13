@@ -43,5 +43,4 @@ const showTodosInClickedProject = () => {
   });
 };
 
-
 export { showTodos, showTodosInClickedProject };

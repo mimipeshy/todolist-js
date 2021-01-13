@@ -2,7 +2,7 @@ class Storage {
   // Handle Projects
   static getProjects() {
     let projects = [{
-      title: 'Default',
+      title: 'Default Project',
       todos: [],
     }];
 

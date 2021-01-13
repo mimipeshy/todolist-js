@@ -13,5 +13,4 @@ const showProjects = () => {
   });
 };
 
-
 export default showProjects;

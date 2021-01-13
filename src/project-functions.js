@@ -2,7 +2,6 @@ import Storage from './storage';
 import { Project, ProjectDOMElement } from './project-class';
 import { showTodosInClickedProject } from './show-todos';
 
-
 const projectAddFormEl = document.getElementById('project-add-form');
 
 // Add new project to Localstorage and display
