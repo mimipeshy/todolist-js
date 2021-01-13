@@ -1,9 +1,11 @@
-import { Storage } from './storage.js';
+/* eslint max-classes-per-file: ["error", 2] */
+
+import Storage from './storage';
 
 // Class for creating project object
 class Project {
   constructor(title, todos = []) {
-    this.title = title,
+    this.title = title;
     this.todos = todos;
   }
 }

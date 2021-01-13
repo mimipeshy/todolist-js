@@ -1,7 +1,14 @@
-import { Storage } from './storage.js';
-import { TodoDOMElement } from './todo-class.js';
+import Storage from './storage';
+import { TodoDOMElement } from './todo-class';
 
 const todosContainer = document.querySelector('.todos-container');
+
+// Add current class to project for reference
+const projectReference = (target) => {
+  const projectContainerEls = document.querySelectorAll('.project-container');
+  projectContainerEls.forEach(el => el.classList.remove('current'));
+  projectContainerEls[target].classList.add('current');
+};
 
 const showTodos = (index = 0) => {
   const todos = Storage.getTodos(index);
@@ -28,7 +35,7 @@ const showTodosInClickedProject = () => {
     project.addEventListener('click', () => {
       const projectIndex = project.parentElement.getAttribute('data-index');
 
-      if (projectIndex != -1) {
+      if (projectIndex !== -1) {
         projectReference(projectIndex);
         showTodos(projectIndex);
       }
@@ -36,11 +43,5 @@ const showTodosInClickedProject = () => {
   });
 };
 
-// Add current class to project for reference
-const projectReference = (target) => {
-  const projectContainerEls = document.querySelectorAll('.project-container');
-  projectContainerEls.forEach(el => el.classList.remove('current'));
-  projectContainerEls[target].classList.add('current');
-};
 
 export { showTodos, showTodosInClickedProject };

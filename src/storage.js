@@ -28,7 +28,7 @@ class Storage {
     const projects = JSON.parse(localStorage.getItem('todoApp'));
     const todoContainerEl = document.querySelector('.todos-container');
 
-    const index = projects.findIndex((el) => el.title == target);
+    const index = projects.findIndex((el) => el.title === target);
 
     projects.splice(index, 1);
     localStorage.setItem('todoApp', JSON.stringify(projects));
@@ -70,4 +70,4 @@ class Storage {
     localStorage.setItem('todoApp', JSON.stringify(projects));
   }
 }
-export { Storage };
+export default Storage;

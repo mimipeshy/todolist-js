@@ -1,6 +1,6 @@
-import { Storage } from './storage.js';
-import { Todo } from './todo-class.js';
-import { showTodos } from './show-todos.js';
+import Storage from './storage';
+import { Todo } from './todo-class';
+import { showTodos } from './show-todos';
 
 const createAddTodoDisplay = () => {
   const popupDisplayEl = document.querySelector('.popup-display-container');
@@ -35,6 +35,15 @@ const createAddTodoDisplay = () => {
     `;
 };
 
+const formValidation = () => {
+  const titleInputEl = document.getElementById('title');
+
+  if (titleInputEl.value.trim()) {
+    return true;
+  }
+  return false;
+};
+
 const createNewTodo = () => {
   const formEl = document.querySelector('.input-form');
   const titleInputEl = document.getElementById('title');
@@ -62,15 +71,6 @@ const createNewTodo = () => {
       popupDisplayEl.innerHTML = '';
     }
   });
-};
-
-const formValidation = () => {
-  const titleInputEl = document.getElementById('title');
-
-  if (titleInputEl.value.trim()) {
-    return true;
-  }
-  return false;
 };
 
 const closeAddTodo = () => {

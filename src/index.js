@@ -1,15 +1,13 @@
-import { renderAddTodo } from './display-add-todo.js';
-import { projectDisplayListener } from './project-functions.js';
-import { showProjects } from './show-projects.js';
-import { showTodos, showTodosInClickedProject } from './show-todos.js';
-import { Storage } from './storage.js';
+import { renderAddTodo } from './display-add-todo';
+import projectDisplayListener from './project-functions';
+import showProjects from './show-projects';
+import { showTodos, showTodosInClickedProject } from './show-todos';
+import Storage from './storage';
 
 
-const todoApp = (() => {
-  Storage.getProjects();
-  renderAddTodo();
-  projectDisplayListener();
-  showProjects();
-  showTodos();
-  showTodosInClickedProject();
-})();
+Storage.getProjects();
+renderAddTodo();
+projectDisplayListener();
+showProjects();
+showTodos();
+showTodosInClickedProject();

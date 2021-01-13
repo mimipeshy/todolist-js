@@ -1,6 +1,7 @@
-import { Storage } from './storage.js';
-import { createAddTodoDisplay, closeAddTodo, formValidation } from './display-add-todo.js';
-import { showTodos } from './show-todos.js';
+/* eslint max-classes-per-file: ["error", 2] */
+import Storage from './storage';
+import { createAddTodoDisplay, closeAddTodo, formValidation } from './display-add-todo';
+import { showTodos } from './show-todos';
 
 
 class Todo {
@@ -110,7 +111,8 @@ class TodoDOMElement {
 
     formEl.addEventListener('submit', (e) => {
       e.preventDefault();
-      Storage.modifyTodo(index, this.index, titleInputEl.value, priorityInputeEl.value, dueInputEl.value, todo.done);
+      Storage.modifyTodo(index, this.index, titleInputEl.value, priorityInputeEl.value,
+        dueInputEl.value, todo.done);
       showTodos(index);
       popupDisplayEl.innerHTML = '';
     });

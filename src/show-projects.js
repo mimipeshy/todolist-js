@@ -1,5 +1,5 @@
-import { Storage } from './storage.js';
-import { ProjectDOMElement } from './project-class.js';
+import Storage from './storage';
+import { ProjectDOMElement } from './project-class';
 
 // Bring project from LocalStorage and display - for when page is refreshed
 const showProjects = () => {
@@ -14,4 +14,4 @@ const showProjects = () => {
 };
 
 
-export { showProjects };
+export default showProjects;
