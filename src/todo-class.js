@@ -45,8 +45,8 @@ class TodoDOMElement {
     this.priorityDiv.textContent = priority;
     this.titleDiv.textContent = title;
     this.dueDiv.textContent = due;
-    this.checkButton.textContent = 'Check';
-    this.modifyButton.textContent = 'Modify';
+    this.checkButton.textContent = 'Done';
+    this.modifyButton.textContent = 'Update';
     this.deleteButton.textContent = 'Delete';
 
     this.div.setAttribute('data-index', index);
