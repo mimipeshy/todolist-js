@@ -1,4 +1,4 @@
-import Storage from './storage';
+import { saveTodo } from './storage';
 import { showTodos } from './show-todos';
 
 const createAddTodoDisplay = () => {
@@ -64,7 +64,7 @@ const createNewTodo = () => {
     if (formValidation()) {
       const todo = new (titleInputEl.value.trim(), dueInputEl.value, priorityInputeEl.value)();
 
-      Storage.saveTodo(todo, index);
+      saveTodo(todo, index);
       showTodos(index);
       popupDisplayEl.innerHTML = '';
     }

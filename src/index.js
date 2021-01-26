@@ -3,9 +3,9 @@ import { renderAddTodo } from './display-add-todo';
 import projectDisplayListener from './project-functions';
 import showProjects from './show-projects';
 import { showTodos, showTodosInClickedProject } from './show-todos';
-import Storage from './storage';
+import { getProjects } from './storage';
 
-Storage.getProjects();
+getProjects();
 renderAddTodo();
 projectDisplayListener();
 showProjects();

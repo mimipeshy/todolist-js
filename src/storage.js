@@ -1,73 +1,72 @@
-class Storage {
-  // Handle Projects
-  static getProjects() {
-    let projects = [{
-      title: 'Default Project',
-      todos: [],
-    }];
-
-    if (!localStorage.getItem('todoApp')) {
-      // When there is no 'todoApp' item in localStorage, make and add Default
-      localStorage.setItem('todoApp', JSON.stringify(projects));
-      projects = JSON.parse(localStorage.getItem('todoApp'));
-    } else {
-      projects = JSON.parse(localStorage.getItem('todoApp'));
-    }
-
-    return projects;
-  }
-
-  static saveProject(project) {
-    const projects = JSON.parse(localStorage.getItem('todoApp'));
-
-    projects.push(project);
+const getProjects = () => {
+  let projects = [{ title: 'Default', todos: [] }];
+  if (!localStorage.getItem('todoApp')) {
+    // When there is no 'todoApp' item in localStorage, make and add Default
     localStorage.setItem('todoApp', JSON.stringify(projects));
+    projects = JSON.parse(localStorage.getItem('todoApp'));
+  } else {
+    projects = JSON.parse(localStorage.getItem('todoApp'));
   }
 
-  static removeProject(target) {
-    const projects = JSON.parse(localStorage.getItem('todoApp'));
-    const todoContainerEl = document.querySelector('.todos-container');
+  return projects;
+};
 
-    const index = projects.findIndex((el) => el.title === target);
+const saveProject = (project) => {
+  const projects = JSON.parse(localStorage.getItem('todoApp'));
 
-    projects.splice(index, 1);
-    localStorage.setItem('todoApp', JSON.stringify(projects));
-    todoContainerEl.innerHTML = 'Project deleted, please choose other project';
-  }
+  projects.push(project);
+  localStorage.setItem('todoApp', JSON.stringify(projects));
+};
 
-  // Handle todos in a Project
-  static getTodos(index) {
-    const targetProject = this.getProjects()[index].todos;
-    return targetProject;
-  }
+// Handle todos in a Project
+const getTodos = (index) => {
+  const targetProject = this.getProjects()[index].todos;
+  return targetProject;
+};
+const removeProject = (target) => {
+  const projects = JSON.parse(localStorage.getItem('todoApp'));
+  const todoContainerEl = document.querySelector('.todos-container');
 
-  static saveTodo(todo, index) {
-    const projects = this.getProjects();
+  const index = projects.findIndex((el) => el.title === target);
 
-    // Add todo to todos in specific proejct
-    projects[index].todos.push(todo);
+  projects.splice(index, 1);
+  localStorage.setItem('todoApp', JSON.stringify(projects));
+  todoContainerEl.innerHTML = 'Project deleted, please choose other project';
+};
 
-    localStorage.setItem('todoApp', JSON.stringify(projects));
-  }
+const saveTodo = (todo, index) => {
+  const projects = this.getProjects();
+  // Add todo to todos in specific proejct
+  projects[index].todos.push(todo);
 
-  static removeTodo(index, todoIndex) {
-    const projects = this.getProjects();
+  localStorage.setItem('todoApp', JSON.stringify(projects));
+};
 
-    projects[index].todos.splice(todoIndex, 1);
-    localStorage.setItem('todoApp', JSON.stringify(projects));
-  }
+const removeTodo = (index, todoIndex) => {
+  const projects = this.getProjects();
 
-  static modifyTodo(index, todoIndex, ...changes) {
-    const projects = this.getProjects();
-    const change = [...changes];
-    projects[index].todos[todoIndex] = {
-      title: `${change[0]}`,
-      priority: `${change[1]}`,
-      due: `${change[2]}`,
-      done: change[3],
-    };
+  projects[index].todos.splice(todoIndex, 1);
+  localStorage.setItem('todoApp', JSON.stringify(projects));
+};
 
-    localStorage.setItem('todoApp', JSON.stringify(projects));
-  }
-}
-export default Storage;
+const modifyTodo = (index, todoIndex, ...changes) => {
+  const projects = this.getProjects();
+  const change = [...changes];
+  projects[index].todos[todoIndex] = {
+    title: `${change[0]}`,
+    priority: `${change[1]}`,
+    due: `${change[2]}`,
+    done: change[3],
+  };
+
+  localStorage.setItem('todoApp', JSON.stringify(projects));
+};
+export {
+  getProjects,
+  saveProject,
+  removeProject,
+  getTodos,
+  saveTodo,
+  removeTodo,
+  modifyTodo,
+};

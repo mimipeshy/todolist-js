@@ -1,4 +1,4 @@
-import Storage from './storage';
+import { getTodos } from './storage';
 
 const todosContainer = document.querySelector('.todos-container');
 
@@ -10,7 +10,7 @@ const projectReference = (target) => {
 };
 
 const showTodos = (index = 0) => {
-  const todos = Storage.getTodos(index);
+  const todos = getTodos(index);
   todosContainer.innerHTML = '';
   projectReference(index);
 

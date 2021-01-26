@@ -1,6 +1,6 @@
 /* eslint max-classes-per-file: ["error", 2] */
 
-import Storage from './storage';
+import { getProjects, removeProject } from './storage';
 
 // Class for creating project object
 class Project {
@@ -39,8 +39,8 @@ class ProjectDOMElement {
   onClickDelete() {
     const projectDisplay = document.querySelector('.project-display-container');
 
-    if (Storage.getProjects().length > 1) {
-      Storage.removeProject(this.title);
+    if (getProjects().length > 1) {
+      removeProject(this.title);
       projectDisplay.querySelector(`[data-index='${this.index}']`).remove();
     }
   }

@@ -1,4 +1,4 @@
-import Storage from './storage';
+import { getProjects, saveProject } from './storage';
 import { Project, ProjectDOMElement } from './project-class';
 import { showTodosInClickedProject } from './show-todos';
 
@@ -9,7 +9,7 @@ const addProject = () => {
   const projectDisplay = document.querySelector('.project-display-container');
   const projectAddInput = document.getElementById('project-add').value.trim();
 
-  const numberOfProjects = Storage.getProjects().length;
+  const numberOfProjects = getProjects().length;
 
   // instantiate and save to LocalStorage
   const project = new Project(projectAddInput);
@@ -17,7 +17,7 @@ const addProject = () => {
   // create elements for new project
   const div = new ProjectDOMElement(projectAddInput, numberOfProjects);
 
-  Storage.saveProject(project);
+  saveProject(project);
   projectDisplay.appendChild(div.div);
   showTodosInClickedProject();
   document.getElementById('project-add').value = '';
