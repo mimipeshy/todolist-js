@@ -39,7 +39,7 @@ To get a local copy up and running follow these simple example steps.
 - Unit tests are done by using [JEST](https://jestjs.io) testing framework.
 - Go to the root directory and type:
   - `npm install`
-  - npm run `npm run test-watch` or `npm test`
+  - npm run `npm test`
 
 ## Authors
 
