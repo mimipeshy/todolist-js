@@ -35,6 +35,11 @@ To get a local copy up and running follow these simple example steps.
 - A todo can be updated by clicking on the modify button.
 - A todo can be marked as complete by clicking on the done button
 
+## Testing
+- Unit tests are done by using [JEST](https://jestjs.io) testing framework.
+- Go to the root directory and type:
+  - `npm install`
+  - npm run `npm test`
 
 ## Authors
 
